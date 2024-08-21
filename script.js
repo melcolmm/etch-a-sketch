@@ -6,6 +6,7 @@ function createRow(numCols) {
     const row = [];
     for (let col = 0; col < numCols; col++) {
         const div = document.createElement('div');
+        div.setAttribute("class", "drawBlock");
         row.push(div);
     }
     return row;
