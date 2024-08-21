@@ -21,6 +21,16 @@ function createRow(numCols) {
 
  for (let row = 0; row < numRows; row++) {
     for (let col = 0; col < numCols; col++) {
+        divArray[row][col].setAttribute("id", row + "-" + col);
         cont.appendChild(divArray[row][col]);
     }
  }
+
+const elements = document.querySelectorAll(".drawBlock");
+const elementsFilled = document.querySelectorAll(".drawBlockFilled");
+
+elements.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+        element.setAttribute("class", "drawBlockFilled");
+    })
+});
