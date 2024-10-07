@@ -12,27 +12,28 @@
 
 #drawPad {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
     width: 500px;
     height: 500px;
     border-style: solid;
     border-color: black;
     border-width: 2px;
     background-color: white;
-    flex-wrap: wrap;
-    gap: 1px;
 }
 
 .drawBlock {
-    display: flex;
-    width: 30px;
-    height: 30px;
+    align-self: flex-start;
+    flex: 1 1 auto;
+    width: auto;
+    aspect-ratio: 1;
     background-color: white;
 }
 
 .drawBlockFilled {
-    display: flex;
-    width: 30px;
-    height: 30px;
+    align-self: flex-start;
+    flex: 1 1 auto;
+    width: auto;
+    aspect-ratio: 1;
     background-color: lightblue;
 }

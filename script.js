@@ -1,27 +1,31 @@
 const cont = document.querySelector("#drawPad");
 const btnReset = document.querySelector("#reset");
 
-const divArray = [];
+let divArray = [];
 const startRowsColumns = 16;
 let numRows = startRowsColumns;
 let numCols = startRowsColumns;
 
 drawGrid();
 
-const elements = document.querySelectorAll(".drawBlock");
-const elementsFilled = document.querySelectorAll(".drawBlockFilled");
+btnReset.addEventListener('click', () => {
+    while (cont.firstChild) {
+        cont.removeChild(cont.firstChild);
+    }
+    divArray = [];
 
-elements.forEach((element) => {
-    element.addEventListener("mouseover", () => {
-        element.setAttribute("class", "drawBlockFilled");
-    })
-});
+    let numSquares = prompt("How many squares to a side?");
+    numCols = numSquares;
+    numRows = numSquares;
+    drawGrid();
+})
 
 function createRow(numCols) {
     const row = [];
     for (let col = 0; col < numCols; col++) {
         const div = document.createElement('div');
         div.setAttribute("class", "drawBlock");
+        div.style.width = (500/numCols) + "px";
         row.push(div);
     }
     return row;
@@ -38,5 +42,13 @@ function drawGrid() {
             cont.appendChild(divArray[row][col]);
         }
     }
+
+    const elements = document.querySelectorAll(".drawBlock");
+
+    elements.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+            element.setAttribute("class", "drawBlockFilled");
+        })
+    });
 }
 
